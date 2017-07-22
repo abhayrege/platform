@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jul 21, 2017 11:15:05 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="SafetyDB" dynamic-insert="false" dynamic-update="false" mutable="true" name="in.safety.domain.EmployerMaster" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="EMPLOYER_MASTER">
+        <id name="idEmployerMaster" type="java.lang.Integer">
+            <column name="ID_EMPLOYER_MASTER"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="employerName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="EMPLOYER_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="employerAddr1" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="EMPLOYER_ADDR1"/>
+        </property>
+        <property generated="never" lazy="false" name="employerAddr2" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="EMPLOYER_ADDR2"/>
+        </property>
+        <property generated="never" lazy="false" name="employerCity" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="EMPLOYER_CITY"/>
+        </property>
+        <property generated="never" lazy="false" name="employerState" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="EMPLOYER_STATE"/>
+        </property>
+        <property generated="never" lazy="false" name="employerPincode" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="EMPLOYER_PINCODE"/>
+        </property>
+        <property generated="never" lazy="false" name="employerCountry" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="EMPLOYER_COUNTRY"/>
+        </property>
+        <property generated="never" lazy="false" name="employerType" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="EMPLOYER_TYPE"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="jobPostings" optimistic-lock="true" sort="unsorted" table="JOB_POSTING">
+            <key on-delete="noaction">
+                <column name="JOB_POSTED_BY"/>
+            </key>
+            <one-to-many class="in.safety.domain.JobPosting" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

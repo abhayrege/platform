@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jul 21, 2017 11:15:05 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="SafetyDB" dynamic-insert="false" dynamic-update="false" mutable="true" name="in.safety.domain.Testimonials" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="TESTIMONIALS">
+        <id name="idTestimonials" type="java.lang.Integer">
+            <column name="ID_TESTIMONIALS"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="testimonialsText" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="TESTIMONIALS_TEXT" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="testimonialsFrom" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="TESTIMONIALS_FROM"/>
+        </property>
+        <property generated="never" lazy="false" name="testimonialsSnap" optimistic-lock="true" type="binary" unique="false">
+            <column name="TESTIMONIALS_SNAP"/>
+        </property>
+    </class>
+</hibernate-mapping>

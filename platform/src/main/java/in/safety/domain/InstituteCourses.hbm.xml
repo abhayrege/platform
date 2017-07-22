@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jul 21, 2017 11:15:05 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="SafetyDB" dynamic-insert="false" dynamic-update="false" mutable="true" name="in.safety.domain.InstituteCourses" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="INSTITUTE_COURSES">
+        <id name="idInstituteCourses" type="java.lang.Integer">
+            <column name="ID_INSTITUTE_COURSES"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="in.safety.domain.AcademicCourses" embed-xml="true" fetch="select" insert="true" name="academicCourses" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="ID_ACADEMIC_COURSES"/>
+        </many-to-one>
+        <many-to-one class="in.safety.domain.EduInstitute" embed-xml="true" fetch="select" insert="true" name="eduInstitute" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="ID_EDU_INSTITUTE"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="intakeCapacity" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="INTAKE_CAPACITY"/>
+        </property>
+    </class>
+</hibernate-mapping>

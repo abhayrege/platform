@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jul 21, 2017 11:15:05 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="SafetyDB" dynamic-insert="false" dynamic-update="false" mutable="true" name="in.safety.domain.EduInstitute" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="EDU_INSTITUTE">
+        <id name="idEduInstitute" type="java.lang.Integer">
+            <column name="ID_EDU_INSTITUTE"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="instituteName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="INSTITUTE_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="eduInstituteAddr1" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="EDU_INSTITUTE_ADDR1"/>
+        </property>
+        <property generated="never" lazy="false" name="eduInstituteAddr2" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="EDU_INSTITUTE_ADDR2"/>
+        </property>
+        <property generated="never" lazy="false" name="eduInstitutCity" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="EDU_INSTITUT_CITY"/>
+        </property>
+        <property generated="never" lazy="false" name="eduInstitutePincode" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="EDU_INSTITUTE_PINCODE"/>
+        </property>
+        <property generated="never" lazy="false" name="eduInstituteCountry" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="EDU_INSTITUTE_COUNTRY"/>
+        </property>
+        <property generated="never" lazy="false" name="eduInstitutePocName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="EDU_INSTITUTE_POC_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="eduInstitutePocPhone" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="EDU_INSTITUTE_POC_PHONE"/>
+        </property>
+        <property generated="never" lazy="false" name="eduInstituteEmail" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="EDU_INSTITUTE_EMAIL"/>
+        </property>
+        <property generated="never" lazy="false" name="eduInstituteCode" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="EDU_INSTITUTE_CODE"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="instituteCourseses" optimistic-lock="true" sort="unsorted" table="INSTITUTE_COURSES">
+            <key on-delete="noaction">
+                <column name="ID_EDU_INSTITUTE"/>
+            </key>
+            <one-to-many class="in.safety.domain.InstituteCourses" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

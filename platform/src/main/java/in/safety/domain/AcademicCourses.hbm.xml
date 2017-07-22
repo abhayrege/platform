@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jul 21, 2017 11:15:05 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="SafetyDB" dynamic-insert="false" dynamic-update="false" mutable="true" name="in.safety.domain.AcademicCourses" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="ACADEMIC_COURSES">
+        <id name="idAcademicCourses" type="java.lang.Integer">
+            <column name="ID_ACADEMIC_COURSES"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="courseName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="COURSE_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="courseCode" optimistic-lock="true" type="string" unique="false">
+            <column length="5" name="COURSE_CODE"/>
+        </property>
+        <property generated="never" lazy="false" name="courseDurationMonths" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="COURSE_DURATION_MONTHS"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="instituteCourseses" optimistic-lock="true" sort="unsorted" table="INSTITUTE_COURSES">
+            <key on-delete="noaction">
+                <column name="ID_ACADEMIC_COURSES"/>
+            </key>
+            <one-to-many class="in.safety.domain.InstituteCourses" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="jseekerMasters" optimistic-lock="true" sort="unsorted" table="JSEEKER_MASTER">
+            <key on-delete="noaction">
+                <column name="HIGHEST_QUALIFICATION"/>
+            </key>
+            <one-to-many class="in.safety.domain.JseekerMaster" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

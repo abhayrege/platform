@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jul 21, 2017 11:15:05 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="SafetyDB" dynamic-insert="false" dynamic-update="false" mutable="true" name="in.safety.domain.SkillExperience" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="SKILL_EXPERIENCE">
+        <id name="idSkillExperience" type="java.lang.Integer">
+            <column name="ID_SKILL_EXPERIENCE"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="in.safety.domain.JseekerMaster" embed-xml="true" fetch="select" insert="true" name="jseekerMaster" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="ID_JSEEKER_MASTER" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="skillName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="SKILL_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="skillExperience" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="SKILL_EXPERIENCE"/>
+        </property>
+        <property generated="never" lazy="false" name="createdDate" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="CREATED_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="lastModifiedDate" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="LAST_MODIFIED_DATE"/>
+        </property>
+    </class>
+</hibernate-mapping>

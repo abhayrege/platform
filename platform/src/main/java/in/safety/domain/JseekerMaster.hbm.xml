@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jul 21, 2017 11:15:05 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="SafetyDB" dynamic-insert="false" dynamic-update="false" mutable="true" name="in.safety.domain.JseekerMaster" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="JSEEKER_MASTER">
+        <id name="idJseekerMaster" type="java.lang.Integer">
+            <column name="ID_JSEEKER_MASTER"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="in.safety.domain.AcademicCourses" embed-xml="true" fetch="select" insert="true" name="academicCourses" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="HIGHEST_QUALIFICATION"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="jseekerName" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="JSEEKER_NAME" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="profileTitle" optimistic-lock="true" type="string" unique="false">
+            <column length="300" name="PROFILE_TITLE"/>
+        </property>
+        <property generated="never" lazy="false" name="currentEmployment" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="CURRENT_EMPLOYMENT"/>
+        </property>
+        <property generated="never" lazy="false" name="totalExperience" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="TOTAL_EXPERIENCE"/>
+        </property>
+        <property generated="never" lazy="false" name="preferredLocationCity" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="PREFERRED_LOCATION_CITY"/>
+        </property>
+        <property generated="never" lazy="false" name="dob" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="DOB"/>
+        </property>
+        <property generated="never" lazy="false" name="functionalArea" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="FUNCTIONAL_AREA"/>
+        </property>
+        <property generated="never" lazy="false" name="maritalStatus" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="MARITAL_STATUS"/>
+        </property>
+        <property generated="never" lazy="false" name="keySkills" optimistic-lock="true" type="string" unique="false">
+            <column length="300" name="KEY_SKILLS"/>
+        </property>
+        <property generated="never" lazy="false" name="profileSummary" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="PROFILE_SUMMARY"/>
+        </property>
+        <property generated="never" lazy="false" name="jseekerSnap" optimistic-lock="true" type="binary" unique="false">
+            <column name="JSEEKER_SNAP"/>
+        </property>
+        <property generated="never" lazy="false" name="jseekerResume" optimistic-lock="true" type="binary" unique="false">
+            <column name="JSEEKER_RESUME"/>
+        </property>
+        <property generated="never" lazy="false" name="createdDate" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="CREATED_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="lastModifiedDate" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="LAST_MODIFIED_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="jseekerAddr1" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="JSEEKER_ADDR1"/>
+        </property>
+        <property generated="never" lazy="false" name="jseekerAddr2" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="JSEEKER_ADDR2"/>
+        </property>
+        <property generated="never" lazy="false" name="jseekerCity" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="JSEEKER_CITY"/>
+        </property>
+        <property generated="never" lazy="false" name="jseekerState" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="JSEEKER_STATE"/>
+        </property>
+        <property generated="never" lazy="false" name="jseekerPincode" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="JSEEKER_PINCODE"/>
+        </property>
+        <property generated="never" lazy="false" name="jseekerCountry" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="JSEEKER_COUNTRY"/>
+        </property>
+        <property generated="never" lazy="false" name="cellPhone" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="CELL_PHONE"/>
+        </property>
+        <property generated="never" lazy="false" name="email" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="EMAIL"/>
+        </property>
+        <property generated="never" lazy="false" name="phoneVerificationCode" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="PHONE_VERIFICATION_CODE"/>
+        </property>
+        <property generated="never" lazy="false" name="emailVerificationCode" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="EMAIL_VERIFICATION_CODE"/>
+        </property>
+        <property generated="never" lazy="false" name="phoneVerified" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="PHONE_VERIFIED"/>
+        </property>
+        <property generated="never" lazy="false" name="emailVerified" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="EMAIL_VERIFIED"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="skillExperiences" optimistic-lock="true" sort="unsorted" table="SKILL_EXPERIENCE">
+            <key on-delete="noaction">
+                <column name="ID_JSEEKER_MASTER" not-null="true"/>
+            </key>
+            <one-to-many class="in.safety.domain.SkillExperience" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="jseekerEmploymentDetailses" optimistic-lock="true" sort="unsorted" table="JSEEKER_EMPLOYMENT_DETAILS">
+            <key on-delete="noaction">
+                <column name="ID_JSEEKER_MASTER" not-null="true"/>
+            </key>
+            <one-to-many class="in.safety.domain.JseekerEmploymentDetails" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="jobPostingJseekers" optimistic-lock="true" sort="unsorted" table="JOB_POSTING_JSEEKER">
+            <key on-delete="noaction">
+                <column name="ID_JSEEKER_MASTER"/>
+            </key>
+            <one-to-many class="in.safety.domain.JobPostingJseeker" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

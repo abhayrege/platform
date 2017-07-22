@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jul 21, 2017 11:15:05 PM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="SafetyDB" dynamic-insert="false" dynamic-update="false" mutable="true" name="in.safety.domain.JobPosting" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="JOB_POSTING">
+        <id name="idJobPosting" type="java.lang.Integer">
+            <column name="ID_JOB_POSTING"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="in.safety.domain.EmployerMaster" embed-xml="true" fetch="select" insert="true" name="employerMaster" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="JOB_POSTED_BY"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="jobTitle" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="JOB_TITLE"/>
+        </property>
+        <property generated="never" lazy="false" name="requiredQualification" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="REQUIRED_QUALIFICATION"/>
+        </property>
+        <property generated="never" lazy="false" name="jobDescription" optimistic-lock="true" type="string" unique="false">
+            <column length="500" name="JOB_DESCRIPTION"/>
+        </property>
+        <property generated="never" lazy="false" name="jobPostingValidity" optimistic-lock="true" type="java.lang.Character" unique="false">
+            <column length="1" name="JOB_POSTING_VALIDITY"/>
+        </property>
+        <property generated="never" lazy="false" name="createdDate" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="CREATED_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="lastModifiedDate" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="LAST_MODIFIED_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="featuredJob" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="FEATURED_JOB"/>
+        </property>
+        <property generated="never" lazy="false" name="jobValidTill" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="JOB_VALID_TILL"/>
+        </property>
+        <property generated="never" lazy="false" name="jobLocationCity" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="JOB_LOCATION_CITY"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="jobPostingJseekers" optimistic-lock="true" sort="unsorted" table="JOB_POSTING_JSEEKER">
+            <key on-delete="noaction">
+                <column name="ID_JOB_POSTING"/>
+            </key>
+            <one-to-many class="in.safety.domain.JobPostingJseeker" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

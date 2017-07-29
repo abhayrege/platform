@@ -1,5 +1,5 @@
 package in.safety.domain;
-// Generated Jul 21, 2017 11:15:05 PM by Hibernate Tools 5.2.3.Final
+// Generated Jul 29, 2017 6:39:12 PM by Hibernate Tools 5.2.3.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -27,32 +27,46 @@ public class JobPosting implements java.io.Serializable {
 	private Integer idJobPosting;
 	private EmployerMaster employerMaster;
 	private String jobTitle;
+	private String jobKeywords;
 	private String requiredQualification;
 	private String jobDescription;
+	private String requiredExperienceDetails;
+	private Integer requiredExperience;
+	private String gender;
 	private Character jobPostingValidity;
 	private Date createdDate;
 	private Date lastModifiedDate;
 	private String featuredJob;
 	private Date jobValidTill;
 	private String jobLocationCity;
+	private String jobLocationAddress;
+	private String jobSalaryRange;
 	private Set jobPostingJseekers = new HashSet(0);
 
 	public JobPosting() {
 	}
 
-	public JobPosting(EmployerMaster employerMaster, String jobTitle, String requiredQualification,
-			String jobDescription, Character jobPostingValidity, Date createdDate, Date lastModifiedDate,
-			String featuredJob, Date jobValidTill, String jobLocationCity, Set jobPostingJseekers) {
+	public JobPosting(EmployerMaster employerMaster, String jobTitle, String jobKeywords, String requiredQualification,
+			String jobDescription, String requiredExperienceDetails, Integer requiredExperience, String gender,
+			Character jobPostingValidity, Date createdDate, Date lastModifiedDate, String featuredJob,
+			Date jobValidTill, String jobLocationCity, String jobLocationAddress, String jobSalaryRange,
+			Set jobPostingJseekers) {
 		this.employerMaster = employerMaster;
 		this.jobTitle = jobTitle;
+		this.jobKeywords = jobKeywords;
 		this.requiredQualification = requiredQualification;
 		this.jobDescription = jobDescription;
+		this.requiredExperienceDetails = requiredExperienceDetails;
+		this.requiredExperience = requiredExperience;
+		this.gender = gender;
 		this.jobPostingValidity = jobPostingValidity;
 		this.createdDate = createdDate;
 		this.lastModifiedDate = lastModifiedDate;
 		this.featuredJob = featuredJob;
 		this.jobValidTill = jobValidTill;
 		this.jobLocationCity = jobLocationCity;
+		this.jobLocationAddress = jobLocationAddress;
+		this.jobSalaryRange = jobSalaryRange;
 		this.jobPostingJseekers = jobPostingJseekers;
 	}
 
@@ -87,6 +101,15 @@ public class JobPosting implements java.io.Serializable {
 		this.jobTitle = jobTitle;
 	}
 
+	@Column(name = "JOB_KEYWORDS", length = 200)
+	public String getJobKeywords() {
+		return this.jobKeywords;
+	}
+
+	public void setJobKeywords(String jobKeywords) {
+		this.jobKeywords = jobKeywords;
+	}
+
 	@Column(name = "REQUIRED_QUALIFICATION", length = 100)
 	public String getRequiredQualification() {
 		return this.requiredQualification;
@@ -103,6 +126,33 @@ public class JobPosting implements java.io.Serializable {
 
 	public void setJobDescription(String jobDescription) {
 		this.jobDescription = jobDescription;
+	}
+
+	@Column(name = "REQUIRED_EXPERIENCE_DETAILS", length = 500)
+	public String getRequiredExperienceDetails() {
+		return this.requiredExperienceDetails;
+	}
+
+	public void setRequiredExperienceDetails(String requiredExperienceDetails) {
+		this.requiredExperienceDetails = requiredExperienceDetails;
+	}
+
+	@Column(name = "REQUIRED_EXPERIENCE")
+	public Integer getRequiredExperience() {
+		return this.requiredExperience;
+	}
+
+	public void setRequiredExperience(Integer requiredExperience) {
+		this.requiredExperience = requiredExperience;
+	}
+
+	@Column(name = "GENDER", length = 45)
+	public String getGender() {
+		return this.gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	@Column(name = "JOB_POSTING_VALIDITY", length = 1)
@@ -160,6 +210,24 @@ public class JobPosting implements java.io.Serializable {
 
 	public void setJobLocationCity(String jobLocationCity) {
 		this.jobLocationCity = jobLocationCity;
+	}
+
+	@Column(name = "JOB_LOCATION_ADDRESS", length = 200)
+	public String getJobLocationAddress() {
+		return this.jobLocationAddress;
+	}
+
+	public void setJobLocationAddress(String jobLocationAddress) {
+		this.jobLocationAddress = jobLocationAddress;
+	}
+
+	@Column(name = "JOB_SALARY_RANGE", length = 45)
+	public String getJobSalaryRange() {
+		return this.jobSalaryRange;
+	}
+
+	public void setJobSalaryRange(String jobSalaryRange) {
+		this.jobSalaryRange = jobSalaryRange;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "jobPosting")

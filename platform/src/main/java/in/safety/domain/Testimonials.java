@@ -1,5 +1,5 @@
 package in.safety.domain;
-// Generated Jul 21, 2017 11:15:05 PM by Hibernate Tools 5.2.3.Final
+// Generated Jul 29, 2017 6:39:12 PM by Hibernate Tools 5.2.3.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

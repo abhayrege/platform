@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-<jsp:include page="pageHead"></jsp:include>
+ <jsp:include page="pageHead"></jsp:include> 
 <body>
 
     <!-- PRELOADER -->
@@ -38,7 +38,7 @@
                 </div><!-- end container -->
             </div><!-- end topbar -->
 
-			<jsp:include page="pageMenu"></jsp:include>
+<jsp:include page="pageMenu"></jsp:include> 
 
             <div class="parallax section homehero" data-stellar-background-ratio="0.5" style="background-image:url('<c:url value="/resources/upload/demo.jpg" />');">
                 <div class="container">
@@ -489,7 +489,7 @@
                 </div><!-- end container -->
             </div><!-- end section -->
 
-            <div class="section wb">
+            <%-- <div class="section wb">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
@@ -551,7 +551,7 @@
                         </div>
                     </div><!-- end row -->
                 </div><!-- end container -->
-            </div><!-- end section -->
+            </div><!-- end section --> --%>
 
             <div class="section lb">
                 <div class="container">
